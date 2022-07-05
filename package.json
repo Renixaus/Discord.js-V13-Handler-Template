@@ -1,0 +1,21 @@
+{
+  "name": "renixaus-v13-handler-template",
+  "version": "1.0.0",
+  "description": "Discord.js V13 Handler Template",
+  "main": "Main.js",
+  "scripts": {
+    "start": "node Main.js"
+  },
+  "dependencies": {
+    "discord.js": "^13.8.1",
+    "ascii-table": "^0.0.9",
+    "fs": "^0.0.2"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "repository": {
+    "url": "https://github.com/Renixaus/Discord.js-V13-Handler-Template"
+  },
+  "license": "MIT"
+}
