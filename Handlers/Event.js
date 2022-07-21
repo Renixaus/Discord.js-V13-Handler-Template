@@ -1,16 +1,12 @@
-const {readdirSync} = require('fs');
+const fs = require('fs');
+let AsciiTable = require('ascii-table')
+let table = new AsciiTable()
+table.setHeading('Events', 'Stats')
 
 module.exports = (client) => {
-  readdirSync("./Events/").forEach((file) => {
-    const events = readdirSync("./Events/").filter((file) => file.endsWith(".js"))
-    for(let file of events) {
-      let pull = require(`../Events/${file}`);
-      if(pull.name){
-        client.events.set(pull.name, pull)
-      } else {
-        continue;
-      }
-    }
-  });
-  console.log("✔️ Events Loaded")
-}
+  fs.readdirSync('./Events/').filter((file) => file.endsWith('.js')).forEach((event) => {
+    require(`../Events/${event}`);
+    table.addRow(event.split('.js')[0], '✔️ -> Event Loaded')
+  })
+  console.log(table.toString())
+};
